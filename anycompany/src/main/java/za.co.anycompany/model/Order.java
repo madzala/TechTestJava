@@ -1,9 +1,19 @@
 package za.co.anycompany.model;
 
-public class Order {
+import javax.persistence.*;
 
+@Entity
+@Table(name="CUSTOMER_ORDER")
+public class Order {
+    @Id
+    @GeneratedValue
+    @Column(name="id")
     private int orderId;
+
+    //@Column(name="AMOUNT")
     private double amount;
+
+    //@Column(name="VAT")
     private double VAT;
 
     public int getOrderId() {
