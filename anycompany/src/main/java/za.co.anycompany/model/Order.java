@@ -13,8 +13,16 @@ public class Order {
     //@Column(name="AMOUNT")
     private double amount;
 
-    //@Column(name="VAT")
-    private double VAT;
+    @Column(name="vat")
+    private double vat;
+
+    public Order() {
+    }
+
+    public Order(double amount, double vat) {
+        this.amount = amount;
+        this.vat = vat;
+    }
 
     public int getOrderId() {
         return orderId;
@@ -32,11 +40,20 @@ public class Order {
         this.amount = amount;
     }
 
-    public double getVAT() {
-        return VAT;
+    public double getVat() {
+        return vat;
     }
 
-    public void setVAT(double VAT) {
-        this.VAT = VAT;
+    public void setVat(double vat) {
+        this.vat = vat;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", amount=" + amount +
+                ", VAT=" + vat +
+                '}';
     }
 }

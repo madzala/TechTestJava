@@ -27,7 +27,6 @@ public class OrderService {
     public Customer findCustomerById(Long id) {
         return customerRepository.findById(Long.valueOf(id)).get();
     }
-
     public List<Customer> findAllCustomers() {
         return customerRepository.findAll();
     }
@@ -38,6 +37,13 @@ public class OrderService {
 
     public Customer saveCustomer(Customer customer) {
         return customerRepository.save(customer);
+    }
+
+    public Order placeOrderForCustomer(Order order, Long customerId ) {
+        Customer customer= customerRepository.findById(customerId).get();
+        customer.getOrders().add(order);
+        customerRepository.saveAndFlush(customer);
+        return order;
     }
 //
 //    public boolean placeOrder(Order order, int customerId)

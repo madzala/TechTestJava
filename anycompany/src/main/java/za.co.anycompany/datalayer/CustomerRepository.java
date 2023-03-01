@@ -6,10 +6,7 @@ import za.co.anycompany.model.Customer;
 import za.co.anycompany.model.Order;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -20,4 +17,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     public Customer saveAndFlush(Customer customer);
 
+
+    Optional<Customer> findById(Long valueOf);
 }

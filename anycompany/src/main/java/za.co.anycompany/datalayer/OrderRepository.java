@@ -12,4 +12,6 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long>{
     public List<Order> findAll();
     public Order saveAndFlush(Order order);
+
+    Order save(Order order);
 }
